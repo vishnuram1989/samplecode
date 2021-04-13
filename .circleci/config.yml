@@ -14,3 +14,11 @@ jobs:
       - run: terraform validate
       - run: rm -rf .terraform
       - run: terraform -v
+
+
+workflows:
+  #version: 2.1
+  test:
+    jobs:
+      - terraform_lint
+  
