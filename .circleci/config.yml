@@ -19,7 +19,4 @@ jobs:
 workflows:
   terraform_lint:
     jobs:
-      - lint :
-          filters:
-            branches:
-              only: master
+      - lint
