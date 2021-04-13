@@ -3,7 +3,7 @@ version: 2.1
 
 
 jobs:
-  terraform_lint:
+  lint:
     docker:
       - image: hashicorp/terraform:light
 
@@ -17,8 +17,9 @@ jobs:
 
 
 workflows:
-  #version: 2.1
-  test:
+  terraform_lint:
     jobs:
-      - terraform_lint
-  
+      - terraform_lint :
+          filters:
+            branches:
+              only: master
