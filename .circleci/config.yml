@@ -3,7 +3,7 @@ version: 2.1
 
 
 jobs:
-  lint:
+  terraform_lint:
     docker:
       - image: hashicorp/terraform:light
 
