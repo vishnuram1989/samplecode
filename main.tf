@@ -11,14 +11,12 @@ provider "google" {
   region  = "us-east4"
   zone    = "us-east4-a"
   project = "cloudfico-dev"
-  version = "2.20.0"
 }
 
 provider "google-beta" {
   region  = "us-east4"
   zone    = "us-east4-a"
   project = "cloudfico-dev"
-  version = "2.20.0"
 }
 
 
