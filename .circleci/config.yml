@@ -20,6 +20,7 @@ jobs:
     steps:
       - run: echo "$GOOGLE_CREDENTIAL_FILE_CONTENT" > /tmp/account.json
       - run: export GOOGLE_APPLICATION_CREDENTIALS='/tmp/account.json'
+      - run: terraform init
       - run: terraform plan
      
 
