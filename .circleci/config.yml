@@ -16,11 +16,11 @@ jobs:
 
   terraform_plan:
     docker:
-      - image: hashicorp/terraform:light
+      - image: sjmiller609/helm-kubectl-terraform:latest
     steps:
       - checkout
       - run: ls -l
-      - run: bash pipeline/run.sh
+      - run: pipeline/run.sh
      
 
 workflows:
