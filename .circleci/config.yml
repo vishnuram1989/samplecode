@@ -14,9 +14,23 @@ jobs:
       - run: terraform validate
       - run: rm -rf .terraform
       - run: terraform -v
+   plan:
+     docker:
+      - image: hashicorp/terraform:light
+     steps:
+       - echo "$GOOGLE_CREDENTIAL_FILE_CONTENT" > /tmp/account.json
+       - export GOOGLE_APPLICATION_CREDENTIALS='/tmp/account.json'
+       - terraform plan
+     
 
 
 workflows:
   terraform_lint:
     jobs:
       - lint
+      - terraform_plan:
+          requires:
+            - terraform_lint
+          context:
+            - gcp_dev_context
+     
