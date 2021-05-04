@@ -1,7 +1,6 @@
 ---
 version: 2.1
 
-
 jobs:
   lint:
     docker:
@@ -14,23 +13,22 @@ jobs:
       - run: terraform validate
       - run: rm -rf .terraform
       - run: terraform -v
+
   terraform_plan:
     docker:
-    - image: hashicorp/terraform:light
+      - image: hashicorp/terraform:light
     steps:
-      - echo "$GOOGLE_CREDENTIAL_FILE_CONTENT" > /tmp/account.json
-      - export GOOGLE_APPLICATION_CREDENTIALS='/tmp/account.json'
-      - terraform plan
+      - run: echo "$GOOGLE_CREDENTIAL_FILE_CONTENT" > /tmp/account.json
+      - run: export GOOGLE_APPLICATION_CREDENTIALS='/tmp/account.json'
+      - run: terraform plan
      
 
-
 workflows:
-  terraform_lint:
+  terraform_pipeline:
     jobs:
       - lint
       - terraform_plan:
           requires:
-            - terraform_lint
+            - lint
           context:
             - gcp_dev_context
-     
