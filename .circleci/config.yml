@@ -19,7 +19,8 @@ jobs:
       - image: hashicorp/terraform:light
     steps:
       - checkout
-      - run: pipeline/run.sh
+      - run: ls -l
+      - run: bash pipeline/run.sh
      
 
 workflows:
