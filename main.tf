@@ -1,3 +1,27 @@
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "3.66.1"
+    }
+  }
+}
+
+provider "google" {
+  region  = "us-east4"
+  zone    = "us-east4-a"
+  project = "cloudfico-dev"
+  version = "2.20.0"
+}
+
+provider "google-beta" {
+  region  = "us-east4"
+  zone    = "us-east4-a"
+  project = "cloudfico-dev"
+  version = "2.20.0"
+}
+
+
 resource "null_resource" "check_name" {
 
 }
