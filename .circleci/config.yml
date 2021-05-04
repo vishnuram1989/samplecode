@@ -27,9 +27,6 @@ jobs:
 workflows:
   terraform_pipeline:
     jobs:
-      - lint
       - terraform_plan:
-          requires:
-            - lint
           context:
             - gcp_dev_context
